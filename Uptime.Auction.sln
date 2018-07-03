@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uptime.Auction.Web", "Uptime.Auction.Web\Uptime.Auction.Web.csproj", "{3A28006C-0B93-4718-916F-8E4F7B79B335}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uptime.Auction.Web", "Uptime.Auction.Web\Uptime.Auction.Web.csproj", "{6170072A-44CB-485F-80DD-0B60AFEB3C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A28006C-0B93-4718-916F-8E4F7B79B335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A28006C-0B93-4718-916F-8E4F7B79B335}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A28006C-0B93-4718-916F-8E4F7B79B335}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A28006C-0B93-4718-916F-8E4F7B79B335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6170072A-44CB-485F-80DD-0B60AFEB3C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6170072A-44CB-485F-80DD-0B60AFEB3C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6170072A-44CB-485F-80DD-0B60AFEB3C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6170072A-44CB-485F-80DD-0B60AFEB3C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {913A8808-120F-4233-8E2F-D39F268E6C15}
+		SolutionGuid = {5F67B73A-6F52-470F-9DE9-EEB424D85085}
 	EndGlobalSection
 EndGlobal

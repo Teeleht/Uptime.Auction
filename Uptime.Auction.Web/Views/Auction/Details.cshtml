@@ -1,0 +1,40 @@
+﻿@model Uptime.Auction.Web.Models.Auction
+@{
+    var dateFormat = "yyyy-MM-dd";
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Details</h1>
+    </div>
+</div>
+<div class="container">
+    <h4>@Model.Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>Starting Price</dt>
+        <dd>@Model.StartingPrice</dd>
+
+        <dt>Current Price</dt>
+        <dd>@Model.CurrentPrice</dd>
+
+        <dt>Started</dt>
+        <dd>@Model.Start.ToString(dateFormat)</dd>
+
+        <dt>Ends</dt>
+        <dd>@Model.End.ToString(dateFormat)</dd>
+    </dl>
+
+
+    <div class="input-group" id="bid-input-group">
+        <input type="text" class="form-control" id="bid-input">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="bid-button">Bid</button>
+        </div>
+    </div>
+
+    <button type="button" onclick="location.href='@Url.Action("Index")'" class="btn btn-secondary">Back to List</button>
+</div>

@@ -22,8 +22,8 @@ namespace Uptime.Auction.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             //app.UseFileServer();
-            
-            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            //app.UseDefaultFiles();
 
             if (env.IsDevelopment())
             {

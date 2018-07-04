@@ -1,17 +1,38 @@
 ﻿@model List<Uptime.Auction.Web.Models.Auction>
+@{
+    Layout = "_Layout";
+}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Auction</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-</head>
-<body>
-    @foreach (var auction in Model)
-    {
-        <p>@auction.Item</p>
-    }
-</body>
-</html>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Details</h1>
+    </div>
+</div>
+<div class="container">
+    <table class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Starting Price</th>
+                <th>Current Price</th>
+                <th>Started</th>
+                <th>Ends</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var auction in Model)
+            {
+            <tr>
+                <td>@auction.Item</td>
+                <td>@auction.StartingPrice $</td>
+                <td>@auction.CurrentPrice $</td>
+                <td>@auction.Start</td>
+                <td>@auction.End</td>
+                <td>@Html.ActionLink("Details", "Details")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <button type="button" onclick="location.href='@Url.Action("Create")'" class="btn btn-secondary">Create New Auction</button>
+</div>

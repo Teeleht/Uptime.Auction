@@ -1,0 +1,28 @@
+﻿@model Uptime.Auction.Web.Models.Auction
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Create New Auction</h1>
+    </div>
+</div>
+<div class="container">
+    @using (Html.BeginForm("Create", "Auction", FormMethod.Post))
+    {
+
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Item)</dt>
+            <dd>@Html.TextBoxFor(m => m.Item)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.StartingPrice)</dt>
+            <dd>@Html.TextBoxFor(m => m.StartingPrice)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.End)</dt>
+            <dd>@Html.TextBoxFor(m => m.End)</dd>
+        </dl>
+
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    }
+</div>

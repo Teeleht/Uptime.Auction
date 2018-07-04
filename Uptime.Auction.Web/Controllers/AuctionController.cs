@@ -21,14 +21,23 @@ namespace Uptime.Auction.Web.Controllers
             {
                 new Models.Auction
                 {
-                    Item = "eheh",
+                    Id = 1,
+                    Item = "Ring",
                     Start = DateTime.Now,
+                    End = new DateTime(2019, 4, 5),
+                    StartingPrice = 300,
+                    CurrentPrice = 300,
+
                 },
 
                 new Models.Auction
                 {
-                    Item = "ihih",
+                    Id = 2,
+                    Item = "Painting",
                     Start = DateTime.Now,
+                    End = new DateTime(2019, 4, 5),
+                    StartingPrice = 400,
+                    CurrentPrice = 400,
                 }
             };
             return View(model);
@@ -36,24 +45,51 @@ namespace Uptime.Auction.Web.Controllers
 
 
         [HttpGet("[action]")]
-        public IActionResult Detail()
+        public IActionResult Details()
         {
-            // TODO: ühe oksjoni andmed
-            return View();
+            // TODO: ühe oksjoni andmed, razoroksjon 
+            var model = new Models.Auction
+            {
+                Id = 2,
+                Item = "Painting",
+                Start = DateTime.Now,
+                End = new DateTime(2019, 4, 5),
+                StartingPrice = 400,
+                CurrentPrice = 400,
+            };
+
+            return View(model);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Bid()
+        public IActionResult Bid(double model)
         {
             // TODO: panustamine
             return View();
         }
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public IActionResult Create()
         {
             // TODO: oksjoni loomine
-            return View();
+            var model = new Models.Auction();
+            return View(model);
         }
+
+        [HttpPost("[action]")]
+        public IActionResult Create(Models.Auction model)
+        {
+            // TODO: oksjoni loomine
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        
     }
 }

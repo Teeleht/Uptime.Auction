@@ -76,7 +76,7 @@ namespace Uptime.Auction.Terminal
             // add auction to list
             auctionService.Create(item, startingPrice, endTime);
 
-            Console.WriteLine("You created an auction: ");
+            Console.WriteLine("You created an auction.");
         }
 
         private static void Bid(AuctionService auctionService)

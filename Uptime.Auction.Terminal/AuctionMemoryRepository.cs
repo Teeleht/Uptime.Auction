@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Uptime.Auction.Core;
 
@@ -24,6 +25,7 @@ namespace Uptime.Auction.Terminal
             auctions.Add(auction);
 
             currentId += 1;
+            return auction.Id;
         }
 
         public List<Core.Auction> GetActive()
@@ -31,14 +33,21 @@ namespace Uptime.Auction.Terminal
             return auctions.Where(x => x.End > DateTime.Now).ToList();
         }
 
-        public Core.Auction GetById(int id)
+        public Core.Auction GetById(int auctionId)
         {
             return auctions.First(x => x.Id == auctionId && x.End > DateTime.Now);
         }
 
         public void Update(Core.Auction auction)
         {
-            throw new NotImplementedException();
+            var a = auctions.First(x => x.Id == auction.Id);
+
+            a.Id = auction.Id;
+            a.Item = auction.Item;
+            a.StartingPrice = auction.StartingPrice;
+            a.CurrentPrice = auction.CurrentPrice;
+            a.Start = auction.Start;
+            a.End = auction.End;
         }
     }
 }

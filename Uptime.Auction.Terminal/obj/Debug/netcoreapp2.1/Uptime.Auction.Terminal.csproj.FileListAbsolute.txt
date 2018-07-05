@@ -1,0 +1,14 @@
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Terminal.deps.json
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Terminal.runtimeconfig.json
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Terminal.runtimeconfig.dev.json
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Terminal.dll
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Terminal.pdb
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Core.dll
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\bin\Debug\netcoreapp2.1\Uptime.Auction.Core.pdb
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.csprojAssemblyReference.cache
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.csproj.CoreCompileInputs.cache
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.AssemblyInfoInputs.cache
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.AssemblyInfo.cs
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.csproj.CopyComplete
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.dll
+C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Terminal\obj\Debug\netcoreapp2.1\Uptime.Auction.Terminal.pdb

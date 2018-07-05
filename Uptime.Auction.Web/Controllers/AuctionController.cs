@@ -62,10 +62,10 @@ namespace Uptime.Auction.Web.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult Bid(double model)
+        public IActionResult Bid([FromBody]double model)
         {
             // TODO: panustamine
-            return View();
+            return Ok();
         }
 
         [HttpGet("[action]")]

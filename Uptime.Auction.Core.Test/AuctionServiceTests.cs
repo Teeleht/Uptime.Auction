@@ -91,17 +91,6 @@ namespace Uptime.Auction.Core.Test
         [TestMethod]
         public void TestBid_NoAuctionWithId()
         {
-            var auction = new Auction
-            {
-                Id = 1,
-                Item = "ese",
-                StartingPrice = 30,
-                CurrentPrice = 30,
-                Start = DateTime.Now,
-                End = DateTime.Now.AddDays(100)
-            };
-
-            auctionRepositoryMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(auction);
             var exception = Assert.ThrowsException<Exception>(() => auctionService.Bid(555, 200));
             Assert.AreEqual("There's no auction with that ID", exception.Message);
 

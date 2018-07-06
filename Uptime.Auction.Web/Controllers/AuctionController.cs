@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Uptime.Auction.Core;
+using Uptime.Auction.Web.Models;
 
 namespace Uptime.Auction.Web.Controllers
 {
@@ -10,61 +12,46 @@ namespace Uptime.Auction.Web.Controllers
     [Route("")]
     public class AuctionController : Controller
     {
+        private readonly AuctionService auctionService;
+
+        public AuctionController(AuctionService auctionService)
+        {
+            this.auctionService = auctionService;
+        }
 
         [Route("[action]")]
         [Route("")]
         public IActionResult Index()
         {
             // TODO: nimekiri oksjonitest
-            // id, endtime, algpanus, bootstrap
-            var model = new List<Models.Auction>
-            {
-                new Models.Auction
-                {
-                    Id = 1,
-                    Item = "Ring",
-                    Start = DateTime.Now,
-                    End = new DateTime(2019, 4, 5),
-                    StartingPrice = 300,
-                    CurrentPrice = 300,
-
-                },
-
-                new Models.Auction
-                {
-                    Id = 2,
-                    Item = "Painting",
-                    Start = DateTime.Now,
-                    End = new DateTime(2019, 4, 5),
-                    StartingPrice = 400,
-                    CurrentPrice = 400,
-                }
-            };
-            return View(model);
+            var auctions = auctionService.ShowList();
+            
+            return View(auctions);
         }
 
 
         [HttpGet("[action]")]
-        public IActionResult Details()
+        public IActionResult Details(int auctionId)
         {
             // TODO: ühe oksjoni andmed, razoroksjon 
-            var model = new Models.Auction
-            {
-                Id = 2,
-                Item = "Painting",
-                Start = DateTime.Now,
-                End = new DateTime(2019, 4, 5),
-                StartingPrice = 400,
-                CurrentPrice = 400,
-            };
 
-            return View(model);
+            var auction = auctionService.ShowList().First(x => x.Id == auctionId && x.End > DateTime.Now);
+
+            if (auction != null)
+            {
+                return View(auction);
+            }
+            else
+            {
+                throw new Exception("There's no auction with that ID");
+            }
         }
 
         [HttpPost("[action]")]
-        public IActionResult Bid([FromBody]double model)
+        public IActionResult Bid([FromBody]BidModel bid)
         {
-            // TODO: panustamine
+            // TODO: õige id-ga oksjon, muuta controllerit ja repot; update, save
+            auctionService.Bid(bid.AuctionId, bid.BidPrice);
             return Ok();
         }
 
@@ -72,20 +59,21 @@ namespace Uptime.Auction.Web.Controllers
         public IActionResult Create()
         {
             // TODO: oksjoni loomine
-            var model = new Models.Auction();
-            return View(model);
+            var auction = new Core.Auction();
+            return View(auction);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Create(Models.Auction model)
+        public IActionResult Create(Core.Auction auction)
         {
             // TODO: oksjoni loomine
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View(auction);
             }
             else
             {
+                auctionService.Create(auction.Item, auction.StartingPrice, auction.End);
                 return RedirectToAction("Index");
             }
         }

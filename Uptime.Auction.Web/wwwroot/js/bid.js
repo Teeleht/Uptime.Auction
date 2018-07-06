@@ -3,14 +3,15 @@
     var bidButton = document.getElementById("bid-button");
 
     function bidButtonClicked() {
-        var bidInput = document.getElementById("bid-input");
-        if (bidInput.value) {
+        var bidPrice = document.getElementById("bid-input");
+        var auctionId = bidPrice.getAttribute("data-auction-id");
+        if (bidPrice.value) {
             $.ajax({
                 type: "POST",
                 url: "/bid",
-                data: bidInput.value,
+                data: JSON.stringify( { AuctionId: parseInt(auctionId), BidPrice: parseFloat(bidPrice.value) }),
                 success: function (data) {
-                    alert("jee");
+                    window.location.reload();
                 },
                 contentType: "application/json",
                 datatype: "json",

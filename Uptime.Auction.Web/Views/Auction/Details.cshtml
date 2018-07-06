@@ -1,4 +1,4 @@
-﻿@model Uptime.Auction.Web.Models.Auction
+﻿@model Uptime.Auction.Core.Auction
 @{
     var dateFormat = "yyyy-MM-dd";
     Layout = "_Layout";
@@ -30,7 +30,7 @@
 
 
     <div class="input-group" id="bid-input-group">
-        <input type="text" class="form-control" id="bid-input">
+        <input type="text" class="form-control" id="bid-input" data-auction-id="@Model.Id">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" id="bid-button">Bid</button>
         </div>

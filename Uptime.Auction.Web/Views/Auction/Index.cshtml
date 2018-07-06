@@ -1,4 +1,4 @@
-﻿@model List<Uptime.Auction.Web.Models.Auction>
+﻿@model List<Uptime.Auction.Core.Auction>
 @{
     Layout = "_Layout";
 }
@@ -29,7 +29,7 @@
                 <td>@auction.CurrentPrice $</td>
                 <td>@auction.Start</td>
                 <td>@auction.End</td>
-                <td>@Html.ActionLink("Details", "Details")</td>
+                <td>@Html.ActionLink("Details", "Details", new { auctionId = auction.Id})</td>
             </tr>
             }
         </tbody>

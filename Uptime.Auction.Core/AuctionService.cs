@@ -21,31 +21,17 @@ namespace Uptime.Auction.Core
 
         public void Bid(int auctionId, double bidPrice)
         {
-            if (auctionId < 1)
+            var auction = auctionRepository.GetById(auctionId);
+
+            if (auction.CurrentPrice < bidPrice)
             {
-                throw new Exception("Invalid auction ID");
+                auction.CurrentPrice = bidPrice;
+                auctionRepository.Update(auction);
             }
             else
             {
-                var auction = auctionRepository.GetById(auctionId);
-
-                if (auction != null)
-                {
-                    if (auction.CurrentPrice < bidPrice)
-                    {
-                        auction.CurrentPrice = bidPrice;
-                        auctionRepository.Update(auction);
-                    }
-                    else
-                    {
-                        throw new Exception("Bid needs to be bigger than current price.");
-                    }
-                }
-                else
-                {
-                    throw new Exception("There's no auction with that ID");
-                }
-            }
+                throw new Exception("Bid needs to be bigger than current price.");
+            }  
         }
 
         public IEnumerable<Auction> ShowList()

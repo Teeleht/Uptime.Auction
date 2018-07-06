@@ -1,43 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 using Uptime.Auction.Core;
 
-namespace Uptime.Auction.Terminal
+namespace Uptime.Auction.Web.Repositories
 {
-    public class AuctionMemoryRepository : IAuctionRepository
+    public class AuctionSQLRepository : IAuctionRepository
     {
-        private List<Core.Auction> auctions = new List<Core.Auction>();
-        private int currentId = 1;
+        private readonly AuctionContext context;
+
+        public AuctionSQLRepository(AuctionContext context)
+        {
+            this.context = context;    
+        }
         public int Create(string name, double startingPrice, DateTime endTime)
         {
             var auction = new Core.Auction
             {
-                Id = currentId,
                 Item = name,
                 StartingPrice = startingPrice,
                 CurrentPrice = startingPrice,
                 Start = DateTime.Now,
                 End = endTime
             };
+            context.Auctions.Add(auction);
+            context.SaveChanges();
 
-            auctions.Add(auction);
 
-            currentId += 1;
             return auction.Id;
+
         }
 
         public List<Core.Auction> GetActive()
         {
-            return auctions.Where(x => x.End > DateTime.Now).ToList();
+            return context.Auctions.Where(x => x.End > DateTime.Now).ToList();
         }
 
-        public Core.Auction GetById(int auctionId)
+        public Core.Auction GetById(int id)
         {
             try
             {
-                return auctions.First(x => x.Id == auctionId && x.End > DateTime.Now);
+                return context.Auctions.First(x => x.Id == id && x.End > DateTime.Now);
             }
             catch (InvalidOperationException)
             {
@@ -47,14 +51,15 @@ namespace Uptime.Auction.Terminal
 
         public void Update(Core.Auction auction)
         {
-            var a = auctions.First(x => x.Id == auction.Id);
+            var a = context.Auctions.First(x => x.Id == auction.Id);
 
-            a.Id = auction.Id;
             a.Item = auction.Item;
             a.StartingPrice = auction.StartingPrice;
             a.CurrentPrice = auction.CurrentPrice;
             a.Start = auction.Start;
             a.End = auction.End;
+
+            context.SaveChanges();
         }
     }
 }

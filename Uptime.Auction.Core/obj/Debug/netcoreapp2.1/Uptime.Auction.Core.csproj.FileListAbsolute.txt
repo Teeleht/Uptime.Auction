@@ -1,9 +1,0 @@
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\bin\Debug\netcoreapp2.1\Uptime.Auction.Core.deps.json
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\bin\Debug\netcoreapp2.1\Uptime.Auction.Core.dll
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\bin\Debug\netcoreapp2.1\Uptime.Auction.Core.pdb
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.csproj.CoreCompileInputs.cache
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.AssemblyInfoInputs.cache
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.AssemblyInfo.cs
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.dll
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.pdb
-C:\Users\TeeleKaldaru\source\repos\Uptime.Auction\Uptime.Auction.Core\obj\Debug\netcoreapp2.1\Uptime.Auction.Core.csprojAssemblyReference.cache

@@ -35,7 +35,14 @@ namespace Uptime.Auction.Terminal
 
         public Core.Auction GetById(int auctionId)
         {
-            return auctions.First(x => x.Id == auctionId && x.End > DateTime.Now);
+            try
+            {
+                return auctions.First(x => x.Id == auctionId && x.End > DateTime.Now);
+            }
+            catch (System.InvalidOperationException)
+            {
+                throw new Exception("There's no auction with that ID");
+            }
         }
 
         public void Update(Core.Auction auction)

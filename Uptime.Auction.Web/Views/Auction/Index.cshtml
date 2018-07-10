@@ -37,3 +37,34 @@
     </table>
     <button type="button" onclick="location.href='@Url.Action("Create")'" class="btn btn-secondary">Create New Auction</button>
 </div>
+<div class="container">
+    <input id="chat-input" />
+    <button id="chat-button" class="btn btn-secondary btn-sm">Send</button>
+    <div>
+        <ul id="chat-message"></ul>
+    </div>
+</div>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .build();
+
+    connection.on("ReceiveMessage", (message) => {
+        const msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const li = document.createElement("li");
+        li.textContent = msg;
+        document.getElementById("chat-message").appendChild(li);
+    });
+
+    connection.start().catch(err => console.error(err.toString()));
+
+    document.getElementById("chat-button").addEventListener("click", event => {
+        //const user = document.getElementById("userInput").value;
+        const message = document.getElementById("chat-input").value;
+        //, user, message
+        connection.invoke("SendMessage", message).catch(err => console.error(err.toString()));
+        event.preventDefault();
+    });
+
+</script>

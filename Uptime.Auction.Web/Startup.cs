@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Uptime.Auction.Core;
+using Uptime.Auction.Web.Hubs;
 using Uptime.Auction.Web.Repositories;
 
 namespace Uptime.Auction.Web
@@ -40,6 +41,8 @@ namespace Uptime.Auction.Web
             {
                 options.LoginPath = "/Auction/Login";
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +60,11 @@ namespace Uptime.Auction.Web
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
 
             app.UseMvc(routes =>
             {

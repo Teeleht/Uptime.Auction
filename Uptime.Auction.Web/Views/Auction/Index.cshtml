@@ -5,10 +5,11 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>Details</h1>
+        <h1>Auctions</h1>
     </div>
 </div>
 <div class="container">
+
     <table class="table" style="width:100%">
         <thead>
             <tr>
@@ -23,14 +24,14 @@
         <tbody>
             @foreach (var auction in Model)
             {
-            <tr>
-                <td>@auction.Item</td>
-                <td>@auction.StartingPrice $</td>
-                <td>@auction.CurrentPrice $</td>
-                <td>@auction.Start</td>
-                <td>@auction.End</td>
-                <td>@Html.ActionLink("Details", "Details", new { auctionId = auction.Id})</td>
-            </tr>
+                <tr>
+                    <td>@auction.Item</td>
+                    <td>@auction.StartingPrice $</td>
+                    <td>@auction.CurrentPrice $</td>
+                    <td>@auction.Start</td>
+                    <td>@auction.End</td>
+                    <td>@Html.ActionLink("Details", "Details", new { auctionId = auction.Id })</td>
+                </tr>
             }
         </tbody>
     </table>

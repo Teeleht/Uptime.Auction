@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="container">
-    @using (Html.BeginForm("Create", "Auction", FormMethod.Post))
+    @using (Html.BeginForm("Create", "Auction", FormMethod.Post, new { @id = "create" }))
     {
 
         <dl class="dl-horizontal">
@@ -23,6 +23,6 @@
             <dd>@Html.TextBoxFor(m => m.End)</dd>
         </dl>
 
-        <button type="submit" class="btn btn-secondary">Submit</button>
+        <button type="submit" class="btn btn-secondary" id="submit">Submit</button>
     }
 </div>

@@ -23,7 +23,6 @@ namespace Uptime.Auction.Web.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            // TODO: nimekiri oksjonitest
             var auctions = auctionService.ShowList();
             
             return View(auctions);
@@ -33,7 +32,6 @@ namespace Uptime.Auction.Web.Controllers
         [HttpGet("[action]")]
         public IActionResult Details(int auctionId)
         {
-            // TODO: ühe oksjoni andmed, razoroksjon 
 
             var auction = auctionService.ShowList().First(x => x.Id == auctionId && x.End > DateTime.Now);
 
@@ -50,7 +48,6 @@ namespace Uptime.Auction.Web.Controllers
         [HttpPost("[action]")]
         public IActionResult Bid([FromBody]BidModel bid)
         {
-            // TODO: õige id-ga oksjon, muuta controllerit ja repot; update, save
             auctionService.Bid(bid.AuctionId, bid.BidPrice);
             return Ok();
         }
@@ -58,7 +55,6 @@ namespace Uptime.Auction.Web.Controllers
         [HttpGet("[action]")]
         public IActionResult Create()
         {
-            // TODO: oksjoni loomine
             var auction = new Core.Auction();
             return View(auction);
         }
@@ -66,7 +62,6 @@ namespace Uptime.Auction.Web.Controllers
         [HttpPost("[action]")]
         public IActionResult Create(Core.Auction auction)
         {
-            // TODO: oksjoni loomine
             if (!ModelState.IsValid)
             {
                 return View(auction);
